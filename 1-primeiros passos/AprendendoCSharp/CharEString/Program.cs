@@ -20,6 +20,7 @@ namespace CharEString{
             string titulo = "Curso de C#";
             Console.WriteLine(titulo);
 
+            //Só quebra linha na execucao se tiver o "@".
             string cursos = @"
 -.NET
 -JAVA
