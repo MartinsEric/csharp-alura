@@ -10,21 +10,30 @@ namespace _01_ByteBank
     {
         static void Main(string[] args)
         {
-            ContaCorrente contaCorrente = new ContaCorrente();
+            ContaCorrente contaDoBruno = new ContaCorrente();
+            ContaCorrente contaDaGabriela = new ContaCorrente();
 
-            contaCorrente.saldo = 200;
-            Console.WriteLine(contaCorrente.saldo);
+            contaDoBruno.Depositar(50);
+            contaDaGabriela.Depositar(100);
 
-            contaCorrente.saldo += 100;
-            Console.WriteLine(contaCorrente.saldo);
+            Console.WriteLine("Saldo do Bruno: R$" + contaDoBruno.saldo);
+            Console.WriteLine("Saldo da Gabriela: R$" + contaDaGabriela.saldo);
 
-            ContaCorrente outraConta = new ContaCorrente();
+            contaDoBruno.Sacar(51);
+            contaDaGabriela.Sacar(50);
 
-            outraConta.saldo = 50;
+            Console.WriteLine("Saldo do Bruno: R$" + contaDoBruno.saldo);
+            Console.WriteLine("Saldo da Gabriela: R$" + contaDaGabriela.saldo);
 
-            Console.WriteLine("Saldo da primeira conta: R$" + contaCorrente.saldo);
-            Console.WriteLine("Saldo da segunda conta: R$" + outraConta.saldo);
+            contaDaGabriela.Transferir(20, contaDoBruno);
 
+            Console.WriteLine("Saldo do Bruno: R$" + contaDoBruno.saldo);
+            Console.WriteLine("Saldo da Gabriela: R$" + contaDaGabriela.saldo);
+
+            contaDoBruno.Transferir(90, contaDaGabriela);
+
+            Console.WriteLine("Saldo do Bruno: R$" + contaDoBruno.saldo);
+            Console.WriteLine("Saldo da Gabriela: R$" + contaDaGabriela.saldo);
 
             Console.ReadLine();
         }
