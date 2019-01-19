@@ -9,7 +9,8 @@ namespace _01_ByteBank
     public class Cliente
     {
         public string Nome { get; set; }
-        private string _cpf
+        private string _cpf;
+        public string Cpf
         {
             get
             {
