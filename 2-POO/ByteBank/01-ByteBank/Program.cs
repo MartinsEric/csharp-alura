@@ -10,21 +10,38 @@ namespace _01_ByteBank
     {
         static void Main(string[] args)
         {
-            Cliente gabriela = new Cliente();
-            ContaCorrente conta = new ContaCorrente();
+            Cliente luiza = new Cliente("Luiza", "123.456.789-10", "Engenheira de Bioprocessos");
+            ContaCorrente contaLuiza = new ContaCorrente(luiza, 123, 1234567);
 
-            conta.Titular = gabriela;
+            contaLuiza.Depositar(100);
+            contaLuiza.Sacar(150);
 
-            gabriela.Nome = "Gabriela";
-            gabriela.Cpf = "123.456.789.11";
-            gabriela.Profissao = "Desenvolvedora C#";
+            Cliente eric = new Cliente("Eric", "987.654.321-11", "Desenvolvedor");
+            ContaCorrente contaEric = new ContaCorrente(eric, 123, 1237654);
 
-            conta.Saldo = -10;
+            contaEric.Depositar(100);
+            contaEric.Transferir(100, contaLuiza);
 
-            Console.WriteLine(conta.Titular.Nome);
-            Console.WriteLine(conta.Titular.Cpf);
-            Console.WriteLine(conta.Titular.Profissao);
-            Console.WriteLine(conta.Saldo);
+            Console.WriteLine("----Conta da " + contaLuiza.Titular.Nome + "----");
+            Console.WriteLine("Agência: " + contaLuiza.Agencia);
+            Console.WriteLine("Número: " + contaLuiza.Numero);
+            Console.WriteLine("Profissão: " + contaLuiza.Titular.Profissao);
+            Console.WriteLine("Saldo: R$" + contaLuiza.Saldo);
+
+            Console.WriteLine();
+            Console.WriteLine("--------------------------------------");
+            Console.WriteLine();
+
+            Console.WriteLine("----Conta do " + contaEric.Titular.Nome + "----");
+            Console.WriteLine("Agência: " + contaEric.Agencia);
+            Console.WriteLine("Número: " + contaEric.Numero);
+            Console.WriteLine("Profissão: " + contaEric.Titular.Profissao);
+            Console.WriteLine("Saldo: R$" + contaEric.Saldo);
+
+            Console.WriteLine();
+            Console.WriteLine();
+
+            Console.WriteLine("Total de contas: " + ContaCorrente.TotalDeContas);
 
             Console.ReadLine();
         }

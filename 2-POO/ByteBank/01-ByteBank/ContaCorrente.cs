@@ -6,6 +6,8 @@ namespace _01_ByteBank
         public Cliente Titular { get; set; }
         public int Agencia { get; set; }
         public int Numero { get; set; }
+        public static int TotalDeContas { get; private set; }
+    
         private double _saldo = 100;
 
         public double Saldo
@@ -23,6 +25,15 @@ namespace _01_ByteBank
 
                 _saldo = value;
             }
+        }
+
+        public ContaCorrente(Cliente titular, int agencia, int numero)
+        {
+            this.Titular = titular;
+            this.Agencia = agencia;
+            this.Numero = numero;
+
+            TotalDeContas++;
         }
 
         public bool Sacar(double valor)
