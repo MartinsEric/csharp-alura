@@ -10,6 +10,17 @@ namespace ByteBank
     {
         static void Main(string[] args)
         {
+
+            try
+            {
+                ContaCorrente conta = new ContaCorrente(123,0);
+            }
+            catch(ArgumentException e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine(e.ParamName);
+            }
+
             try
             {
                 Metodo();
