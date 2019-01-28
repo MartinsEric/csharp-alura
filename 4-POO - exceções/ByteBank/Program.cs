@@ -14,25 +14,22 @@ namespace ByteBank
             {
                 Metodo();
             }
-            catch(DivideByZeroException e)
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Um número não pode ser dividido por zero.");
+            }
+            catch(Exception e)
             {
                 Console.WriteLine(e.StackTrace);
                 Console.WriteLine(e.Message);
             }
-            
+                        
             Console.ReadLine();
         }
 
         public static void Metodo()
         {
-            try
-            {
-                TestaDivisao(0);
-            }catch(NullReferenceException e)
-            {
-                Console.WriteLine(e.StackTrace);
-                Console.WriteLine(e.Message);
-            }
+            TestaDivisao(0);
             
         }
 
@@ -44,9 +41,18 @@ namespace ByteBank
         public static int Dividir(int numero, int divisor)
         {
             ContaCorrente conta = null;
-            Console.WriteLine(conta.Saldo);
+            //Console.WriteLine(conta.Saldo);
 
-            return numero / divisor;
+            try
+            {
+                return numero / divisor;
+            }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Exceção com numero = " + numero + " e divisor = " + divisor);
+
+                throw;
+            }
         }
     }
 }
