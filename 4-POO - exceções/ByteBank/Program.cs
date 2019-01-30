@@ -13,7 +13,16 @@ namespace ByteBank
 
             try
             {
-                ContaCorrente conta = new ContaCorrente(123,0);
+                ContaCorrente conta = new ContaCorrente(123,123456);
+                ContaCorrente conta2 = new ContaCorrente(456, 456123);
+
+                conta.Sacar(50);
+                conta2.Transferir(0, conta);
+                
+            }
+            catch(SaldoInsuficienteException ex)
+            {
+                Console.WriteLine(ex.Message);
             }
             catch(ArgumentException e)
             {
@@ -40,7 +49,7 @@ namespace ByteBank
 
         public static void Metodo()
         {
-            TestaDivisao(0);
+            TestaDivisao(2);
             
         }
 
