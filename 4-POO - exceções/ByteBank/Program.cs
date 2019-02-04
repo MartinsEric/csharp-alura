@@ -13,44 +13,28 @@ namespace ByteBank
 
             try
             {
-                ContaCorrente conta = new ContaCorrente(123,123456);
+                ContaCorrente conta = new ContaCorrente(123, 123456);
                 ContaCorrente conta2 = new ContaCorrente(456, 456123);
 
-                conta.Sacar(50);
-                conta2.Transferir(0, conta);
-                
+                conta.Transferir(10000, conta2);
             }
-            catch(SaldoInsuficienteException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            catch(ArgumentException e)
+            catch (OperacaoFinanceiraException e)
             {
                 Console.WriteLine(e.Message);
-                Console.WriteLine(e.ParamName);
-            }
-
-            try
-            {
-                Metodo();
-            }
-            catch (DivideByZeroException)
-            {
-                Console.WriteLine("Um número não pode ser dividido por zero.");
-            }
-            catch(Exception e)
-            {
                 Console.WriteLine(e.StackTrace);
-                Console.WriteLine(e.Message);
-            }
-                        
-            Console.ReadLine();
-        }
 
+                Console.WriteLine("Informações da INNER EXCEPTION (exceção interna)");
+
+                Console.WriteLine(e.InnerException.Message);
+                Console.WriteLine(e.InnerException.StackTrace);
+
+                Console.ReadLine();
+            }
+        }
         public static void Metodo()
         {
             TestaDivisao(2);
-            
+
         }
 
         public static void TestaDivisao(int divisor)
@@ -74,5 +58,6 @@ namespace ByteBank
                 throw;
             }
         }
+
     }
 }
