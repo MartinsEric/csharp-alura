@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,50 @@ namespace ByteBank
     {
         static void Main(string[] args)
         {
+            CarregarContas();
 
+            Console.ReadLine();
+        }
+
+        public static void CarregarContas()
+        {
+            using(LeitorDeArquivo leitor = new LeitorDeArquivo("contas.txt"))
+            {
+                leitor.LerProximaLinha();
+                leitor.LerProximaLinha();
+                leitor.LerProximaLinha();
+            }
+            
+            //----------------------------------------
+            
+            //LeitorDeArquivo leitor = null;
+
+            //try
+            //{
+            //    leitor = new LeitorDeArquivo("teste.txt");
+
+            //    leitor.LerProximaLinha();
+            //    leitor.LerProximaLinha();
+            //    leitor.LerProximaLinha();
+            //}
+            //catch (IOException e)
+            //{
+            //    Console.WriteLine("Exceção do tipo IOException capturada e tratada!");
+            //}
+            //finally
+            //{
+            //    if(leitor != null)
+            //    {
+            //        leitor.Fechar();
+            //    }
+            //}
+
+            
+
+        }
+
+        public static void TestaInnerException()
+        {
             try
             {
                 ContaCorrente conta = new ContaCorrente(123, 123456);
@@ -27,10 +71,9 @@ namespace ByteBank
 
                 Console.WriteLine(e.InnerException.Message);
                 Console.WriteLine(e.InnerException.StackTrace);
-
-                Console.ReadLine();
             }
         }
+
         public static void Metodo()
         {
             TestaDivisao(2);
