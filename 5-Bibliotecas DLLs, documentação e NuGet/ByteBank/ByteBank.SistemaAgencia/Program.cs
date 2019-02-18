@@ -15,7 +15,7 @@ namespace ByteBank.SistemaAgencia
             ContaCorrente conta = new ContaCorrente(847, 489754);
 
 
-            FuncionarioAutenticavel carlos = null;
+            FuncionarioAutenticavel carlos = new GerenteDeConta("12345678909");
             carlos.Autenticar("kjhasfkjas");
 
             Console.WriteLine(conta.Numero);
