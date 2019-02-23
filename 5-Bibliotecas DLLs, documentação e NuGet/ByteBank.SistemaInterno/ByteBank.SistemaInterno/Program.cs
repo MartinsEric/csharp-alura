@@ -15,6 +15,8 @@ namespace ByteBank.SistemaInterno
 
             Console.WriteLine(conta.Saldo);
 
+            conta.Sacar(100);
+
             Console.ReadLine();
         }
     }
