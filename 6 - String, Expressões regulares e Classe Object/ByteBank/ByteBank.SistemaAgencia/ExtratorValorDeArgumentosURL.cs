@@ -27,7 +27,7 @@ namespace ByteBank.SistemaAgencia
         public string GetValor(string nomeParametro)
         {
             string termo = nomeParametro + "=";
-            int indiceTermo = _argumentos.ToUpper().IndexOf(termo.ToUpper());
+            int indiceTermo = _argumentos.ToUpper().IndexOf(termo.ToUpper()); //ToUpper usado para unificar as duas strings no memento do IndexOf
 
             string resultado = _argumentos.Substring(indiceTermo + termo.Length);
 
