@@ -14,13 +14,14 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
-
+            //Teste de expressao regular.
             string expReg = "[0-9]{4,5}[- ]?[0-9]{4}";
             string textoTeste = "anote o telefone 8543-2134";
 
             Match resultado = Regex.Match(textoTeste, expReg);
 
             Console.WriteLine(resultado);
+
             Console.ReadLine();
 
 
@@ -31,9 +32,6 @@ namespace ByteBank.SistemaAgencia
             //Console.WriteLine("moeda origem: " + extrator.GetValor("moedaorigem"));
             //Console.WriteLine("moeda destino: " + extrator.GetValor("moedaDeStino"));
             //Console.WriteLine("valor: " + extrator.GetValor("VALOR"));
-
-
-
 
 
             //Console.ReadLine();
