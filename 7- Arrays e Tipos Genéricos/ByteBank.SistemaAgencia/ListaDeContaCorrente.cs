@@ -28,6 +28,36 @@ namespace ByteBank.SistemaAgencia
             _proximaPosicao++;
         }
 
+        public void Remover(ContaCorrente conta)
+        {
+            int indiceItem = -1;
+
+            for(int i = 0; i < _proximaPosicao; i++)
+            {
+                if (_itens[i].Equals(conta))
+                {
+                    indiceItem = i;
+                    break;
+                }
+            }
+
+            for(int i = indiceItem; i < _proximaPosicao -1; i++)
+            {
+                _itens[i] = _itens[i + 1];
+            }
+
+            _itens[_proximaPosicao] = null;
+            _proximaPosicao--;
+        }
+
+        public void Imprimir()
+        {
+            for(int i = 0; i < _proximaPosicao; i++)
+            {
+                Console.WriteLine($"Agência: {_itens[i].Agencia} --- Número: {_itens[i].Numero}");
+            }
+        }
+
         private void VerificarCapacidade(int tamanhoNecessario)
         {
             if(_itens.Length >= tamanhoNecessario)
