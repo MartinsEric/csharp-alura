@@ -12,19 +12,47 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
+            //Tipo int
+            Lista<int> listaIdades = new Lista<int>();
+
+            listaIdades.Adicionar(1);
+            listaIdades.AdicionarVarios(1, 2, 5, 6, 7);
+            listaIdades.Remover(5);
+
+            //Tipo String
+            Lista<string> listaNomes = new Lista<string>();
+            listaNomes.Adicionar("Eric");
+            listaNomes.AdicionarVarios("Luiza", "Breno", "Fabrício","Pamela");
+            listaNomes.Remover("Pamela");
+
+            //Tipo ContaCorrente
+            ContaCorrente conta = new ContaCorrente(123, 1234567);
+            Lista<ContaCorrente> listaContas = new Lista<ContaCorrente>();
+            listaContas.Adicionar(conta);
+            listaContas.AdicionarVarios(new ContaCorrente(123, 1234567), 
+                new ContaCorrente(321, 321456), 
+                new ContaCorrente(432, 432654));
+            listaContas.Remover(conta);
+
+
+            Console.ReadLine();
+        }
+
+        public static void TestaListaDeContaCorrente()
+        {
             ListaDeContaCorrente lista = new ListaDeContaCorrente(6);
 
             ContaCorrente contaEric = new ContaCorrente(132, 1324567);
-            
-            lista.AdicionarVarios(contaEric, 
-                new ContaCorrente(123, 123475), 
-                new ContaCorrente(123, 1234876), 
+
+            lista.AdicionarVarios(contaEric,
+                new ContaCorrente(123, 123475),
+                new ContaCorrente(123, 1234876),
                 new ContaCorrente(123, 1234567));
 
             ContaCorrente item = lista.GetContaPeloIndice(2);
             Console.WriteLine($"{item.Agencia}/{item.Numero}");
 
-            for(int i = 0; i < lista.Tamanho; i++)
+            for (int i = 0; i < lista.Tamanho; i++)
             {
                 ContaCorrente conta = lista[i];
                 Console.WriteLine($"Conta {conta.Agencia} / {conta.Numero}");
@@ -37,10 +65,6 @@ namespace ByteBank.SistemaAgencia
             Console.WriteLine();
 
             //lista.Imprimir();
-
-
-
-            Console.ReadLine();
         }
 
         public static void ArrayDeContas()
