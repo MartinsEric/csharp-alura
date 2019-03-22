@@ -15,34 +15,28 @@ namespace ByteBank.SistemaAgencia
             ListaDeContaCorrente lista = new ListaDeContaCorrente(6);
 
             ContaCorrente contaEric = new ContaCorrente(132, 1324567);
-
             
-            lista.Adicionar(new ContaCorrente(123, 123456));
-            lista.Adicionar(new ContaCorrente(123, 123475));
-            lista.Adicionar(new ContaCorrente(123, 1234567));
-            lista.Adicionar(new ContaCorrente(123, 1234876));
-            lista.Adicionar(new ContaCorrente(123, 123456));
-            lista.Adicionar(new ContaCorrente(123, 123475));
-            lista.Adicionar(new ContaCorrente(123, 1234567));
-            lista.Adicionar(new ContaCorrente(123, 1234876));
-            lista.Adicionar(new ContaCorrente(123, 123456));
-            lista.Adicionar(new ContaCorrente(123, 123475));
-            lista.Adicionar(new ContaCorrente(123, 1234567));
-            lista.Adicionar(new ContaCorrente(123, 1234876));
-            lista.Adicionar(new ContaCorrente(123, 123456));
-            lista.Adicionar(new ContaCorrente(123, 123475));
-            lista.Adicionar(new ContaCorrente(123, 1234567));
-            lista.Adicionar(new ContaCorrente(123, 1234876));
-            lista.Adicionar(contaEric);
+            lista.AdicionarVarios(contaEric, 
+                new ContaCorrente(123, 123475), 
+                new ContaCorrente(123, 1234876), 
+                new ContaCorrente(123, 1234567));
 
-            Console.WriteLine();
+            ContaCorrente item = lista.GetContaPeloIndice(2);
+            Console.WriteLine($"{item.Agencia}/{item.Numero}");
 
-            lista.Imprimir();
+            for(int i = 0; i < lista.Tamanho; i++)
+            {
+                ContaCorrente conta = lista[i];
+                Console.WriteLine($"Conta {conta.Agencia} / {conta.Numero}");
+            }
+
+
+            //lista.Imprimir();
             lista.Remover(contaEric);
 
             Console.WriteLine();
 
-            lista.Imprimir();
+            //lista.Imprimir();
 
 
 
