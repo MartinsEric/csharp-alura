@@ -13,9 +13,9 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
-            //Tipo int
-            List<int> idades = new List<int>();
-            List<string> nomes = new List<string>();
+
+            var idades = new List<int>();
+            var nomes = new List<string>();
 
             idades.Add(1);
             idades.Add(3);
@@ -26,14 +26,20 @@ namespace ByteBank.SistemaAgencia
 
             //ListExtensoes.AdicionarVarios(idades, 234, 454, 456, 867);
             idades.AdicionarVarios(234, 456, 5467, 67845);
-            
-            for(int i = 0; i < idades.Count; i++)
+            nomes.AdicionarVarios("Luiza", "Eric", "Breno", "Fafa");
+
+            idades.Sort();
+            nomes.Sort();
+
+            for (int i = 0; i < idades.Count; i++)
             {
                 Console.WriteLine(idades[i]);
             }
 
-            nomes.AdicionarVarios("Luiza", "Eric", "Breno", "Fafa");
-
+            foreach (var nome in nomes)
+            {
+                Console.WriteLine(nome);
+            }
 
             Console.ReadLine();
         }
