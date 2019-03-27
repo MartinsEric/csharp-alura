@@ -12,10 +12,26 @@ namespace Alura.Loja.Testes.ConsoleApp
         {
             //GravarUsandoAdoNet();
             //GravarUsandoEntity();
-            RecuperarProdutos();
+            //RecuperarProdutos();
             //ExcluirProdutos();
+            AtualizarProduto();
 
             Console.ReadLine();
+        }
+
+        private static void AtualizarProduto()
+        {
+            GravarUsandoEntity();
+            RecuperarProdutos();
+
+            using(var contexto = new LojaContext())
+            {
+                Produto primeiroProduto = contexto.Produtos.First();
+                primeiroProduto.Nome = "HP5";
+                contexto.Produtos.Update(primeiroProduto);
+                contexto.SaveChanges();
+            }
+            RecuperarProdutos();
         }
 
         private static void ExcluirProdutos()
@@ -42,6 +58,10 @@ namespace Alura.Loja.Testes.ConsoleApp
                 {
                     Console.WriteLine("não há produtos!");
                     return;
+                }
+                else
+                {
+                    Console.WriteLine($"Foram encontrados {produtos.Count} produto(s).");
                 }
 
                 foreach (var item in produtos)
