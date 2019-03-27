@@ -13,6 +13,23 @@ namespace Alura.Loja.Testes.ConsoleApp
             //GravarUsandoAdoNet();
             //GravarUsandoEntity();
             RecuperarProdutos();
+            //ExcluirProdutos();
+
+            Console.ReadLine();
+        }
+
+        private static void ExcluirProdutos()
+        {
+            using(var contexto = new LojaContext())
+            {
+                var produtos = contexto.Produtos.ToList();
+
+                foreach (var item in produtos)
+                {
+                    contexto.Produtos.Remove(item);
+                }
+                contexto.SaveChanges();
+            }
         }
 
         private static void RecuperarProdutos()
@@ -21,13 +38,17 @@ namespace Alura.Loja.Testes.ConsoleApp
             {
                 var produtos = contexto.Produtos.ToList();
 
+                if(produtos.Count == 0)
+                {
+                    Console.WriteLine("não há produtos!");
+                    return;
+                }
+
                 foreach (var item in produtos)
                 {
                     Console.WriteLine(item.Nome);
                 }
             }
-
-            Console.ReadLine();
         }
 
         private static void GravarUsandoEntity()
