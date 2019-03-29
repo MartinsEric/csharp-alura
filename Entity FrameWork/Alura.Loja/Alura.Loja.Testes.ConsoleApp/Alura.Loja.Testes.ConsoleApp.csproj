@@ -173,15 +173,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Compra.cs" />
     <Compile Include="IProdutoDAO.cs" />
     <Compile Include="LojaContext.cs" />
-    <Compile Include="Migrations\20190327203843_Inicial.cs" />
-    <Compile Include="Migrations\20190327203843_Inicial.designer.cs">
-      <DependentUpon>20190327203843_Inicial.cs</DependentUpon>
+    <Compile Include="Migrations\20190329042543_Inicial.cs" />
+    <Compile Include="Migrations\20190329042543_Inicial.designer.cs">
+      <DependentUpon>20190329042543_Inicial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20190327203952_Unidade.cs" />
-    <Compile Include="Migrations\20190327203952_Unidade.designer.cs">
-      <DependentUpon>20190327203952_Unidade.cs</DependentUpon>
+    <Compile Include="Migrations\20190329042805_Unidade.cs" />
+    <Compile Include="Migrations\20190329042805_Unidade.designer.cs">
+      <DependentUpon>20190329042805_Unidade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20190329045416_Compra.cs" />
+    <Compile Include="Migrations\20190329045416_Compra.designer.cs">
+      <DependentUpon>20190329045416_Compra.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\LojaContextModelSnapshot.cs" />
     <Compile Include="ProdutoDAOEntity.cs" />
@@ -196,5 +201,6 @@
   <ItemGroup>
     <Content Include="ddl-produtos.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
